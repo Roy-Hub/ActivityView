@@ -18,13 +18,14 @@
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xQQ-Wg-C9v">
                                 <rect key="frame" x="16" y="225" width="200" height="150"/>
-                                <color key="backgroundColor" red="0.99334506729799199" green="0.18543158324168241" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="backgroundColor" red="0.32759189375515152" green="0.23105332406065915" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="150" id="cmz-G8-B23">
                                         <variation key="heightClass=regular" constant="300"/>
                                         <variation key="widthClass=regular" constant="250"/>
                                     </constraint>
                                     <constraint firstAttribute="width" constant="200" id="ezH-5p-0Sv">
+                                        <variation key="heightClass=compact" constant="500"/>
                                         <variation key="heightClass=regular-widthClass=regular" constant="300"/>
                                     </constraint>
                                 </constraints>
@@ -38,7 +39,7 @@
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="vqo-lF-Mvd">
+                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="vqo-lF-Mvd">
                                 <rect key="frame" x="166" y="549" width="51" height="31"/>
                                 <connections>
                                     <action selector="showActivityToggled:" destination="vXZ-lx-hvc" eventType="valueChanged" id="zQe-bW-B2I"/>
