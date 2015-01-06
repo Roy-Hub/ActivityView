@@ -18,7 +18,7 @@
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xQQ-Wg-C9v">
                                 <rect key="frame" x="16" y="225" width="200" height="150"/>
-                                <color key="backgroundColor" red="0.32759189375515152" green="0.23105332406065915" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="backgroundColor" red="0.40312290202747991" green="0.89340835963142184" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="150" id="cmz-G8-B23">
                                         <variation key="heightClass=regular" constant="300"/>
@@ -46,7 +46,7 @@
                                 </connections>
                             </switch>
                         </subviews>
-                        <color key="backgroundColor" red="0.40456774639999998" green="0.84047103099999998" blue="0.68025775550000001" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="backgroundColor" red="1" green="0.62189422977342967" blue="0.37341043981174749" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstItem="cEH-Dm-KlX" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leading" constant="16" id="587-Ev-DYJ"/>
                             <constraint firstItem="cEH-Dm-KlX" firstAttribute="centerY" secondItem="vqo-lF-Mvd" secondAttribute="centerY" id="KXj-wp-gm4"/>

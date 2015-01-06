@@ -35,7 +35,7 @@
          *  ActivityView *activity = [[ActivityView alloc]init];
          *  [activity showActivityInView:self.insideView withText:@""];
          */
-        [ActivityView setBackgroundColour:[UIColor colorWithRed:(215.0/256.0) green:(200.0/256.0) blue:(100.0/256.0) alpha:0.9]];
+        [ActivityView setBackgroundColour:[UIColor colorWithRed:(255.0/255.0) green:(255.0/256.0) blue:(0.0/256.0) alpha:0.9]];
         [ActivityView showActivityInView:self.insideView withText:@"Activity View inside View"];
     }
     else
