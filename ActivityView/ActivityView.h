@@ -21,10 +21,10 @@
 +(void)setFont:(UIFont *)font;
 -(void)setFont:(UIFont *)font;
 
++(void)setTextColour:(UIColor *)fontColour;
+-(void)setTextColour:(UIColor *)fontColour;
+
 +(BOOL)isVisible;
 -(BOOL)isVisible;
-
-+(CGRect)activityFrameForFrame:(CGRect)vidFrame;
--(CGRect)activityFrameForFrame:(CGRect)vidFrame;
 
 @end

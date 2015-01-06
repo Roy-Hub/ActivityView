@@ -159,24 +159,6 @@ const CGFloat margin = 10.0;
     [[view layer] setCornerRadius:radius];
 }
 
-+(CGRect)activityFrameForFrame:(CGRect)vidFrame
-{
-    return [[ActivityView sharedView]activityFrameForFrame:vidFrame];
-}
-
--(CGRect)activityFrameForFrame:(CGRect)vidFrame
-{
-    CGSize size = [[self mesglabel]sizeThatFits:vidFrame.size];
-    size.width = (size.width + 20 < vidFrame.size.width)?size.width:(vidFrame.size.width - 26);
-    CGSize activitySize = CGSizeMake(size.width + 20, 70);
-    CGPoint center = CGPointMake(CGRectGetMidX(vidFrame), CGRectGetMidY(vidFrame));
-    CGPoint activityOrigin = CGPointMake(center.x - activitySize.width/2.0, center.y - activitySize.height/2.0);
-    CGRect activityFrame;
-    activityFrame.origin = activityOrigin;
-    activityFrame.size   = activitySize;
-    return activityFrame;
-}
-
 + (ActivityView*)sharedView
 {
     static dispatch_once_t once;
@@ -203,6 +185,18 @@ const CGFloat margin = 10.0;
     }
 }
 
++(void)setTextColour:(UIColor *)fontColour
+{
+    [[ActivityView sharedView]setTextColour:fontColour];
+}
+
+-(void)setTextColour:(UIColor *)fontColour
+{
+    if(fontColour)
+    {
+        [[self mesglabel]setTextColor:fontColour];
+    }
+}
 
 #pragma mark - Show Hide Methods
 
