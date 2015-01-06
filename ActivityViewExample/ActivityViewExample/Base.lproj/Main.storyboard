@@ -16,20 +16,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xQQ-Wg-C9v">
-                                <rect key="frame" x="16" y="225" width="200" height="150"/>
-                                <color key="backgroundColor" red="0.40312290202747991" green="0.89340835963142184" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="150" id="cmz-G8-B23">
-                                        <variation key="heightClass=regular" constant="300"/>
-                                        <variation key="widthClass=regular" constant="250"/>
-                                    </constraint>
-                                    <constraint firstAttribute="width" constant="200" id="ezH-5p-0Sv">
-                                        <variation key="heightClass=compact" constant="500"/>
-                                        <variation key="heightClass=regular-widthClass=regular" constant="300"/>
-                                    </constraint>
-                                </constraints>
-                            </view>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Show activity view" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cEH-Dm-KlX">
                                 <rect key="frame" x="16" y="554" width="142" height="21"/>
                                 <constraints>
@@ -45,6 +31,20 @@
                                     <action selector="showActivityToggled:" destination="vXZ-lx-hvc" eventType="valueChanged" id="zQe-bW-B2I"/>
                                 </connections>
                             </switch>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xQQ-Wg-C9v">
+                                <rect key="frame" x="16" y="225" width="200" height="150"/>
+                                <color key="backgroundColor" red="0.40312290202747991" green="0.89340835963142184" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="150" id="cmz-G8-B23">
+                                        <variation key="heightClass=regular" constant="300"/>
+                                        <variation key="widthClass=regular" constant="250"/>
+                                    </constraint>
+                                    <constraint firstAttribute="width" constant="200" id="ezH-5p-0Sv">
+                                        <variation key="heightClass=compact" constant="500"/>
+                                        <variation key="heightClass=regular-widthClass=regular" constant="300"/>
+                                    </constraint>
+                                </constraints>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" red="1" green="0.62189422977342967" blue="0.37341043981174749" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>

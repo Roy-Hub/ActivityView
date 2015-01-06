@@ -24,6 +24,9 @@
 +(void)setTextColour:(UIColor *)fontColour;
 -(void)setTextColour:(UIColor *)fontColour;
 
++(void)setActivityIndicatorColour:(UIColor *)colour;
+-(void)setActivityIndicatorColour:(UIColor *)colour;
+
 +(BOOL)isVisible;
 -(BOOL)isVisible;
 

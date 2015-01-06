@@ -82,7 +82,7 @@ const CGFloat margin = 10.0;
                                                    attribute:NSLayoutAttributeWidth
                                                    relatedBy:NSLayoutRelationEqual
                                                       toItem:nil
-                                                   attribute:nil
+                                                   attribute:NSLayoutAttributeWidth
                                                   multiplier:1.0
                                                     constant:0];
     
@@ -90,7 +90,7 @@ const CGFloat margin = 10.0;
                                                    attribute:NSLayoutAttributeHeight
                                                    relatedBy:NSLayoutRelationEqual
                                                       toItem:nil
-                                                   attribute:nil
+                                                   attribute:NSLayoutAttributeHeight
                                                   multiplier:1.0
                                                     constant:0];
     
@@ -149,6 +149,7 @@ const CGFloat margin = 10.0;
     [widthConstraint setConstant:size.width + 2.0 * margin];
     [heightConstraint setConstant:70.0];
 }
+
 +(void)setBorderForView:(UIView *)view
         withBorderWidth:(CGFloat)borderWidth
             BorderColor:(UIColor *)borderColor
@@ -198,6 +199,18 @@ const CGFloat margin = 10.0;
     }
 }
 
++(void)setActivityIndicatorColour:(UIColor *)colour
+{
+    [[ActivityView sharedView]setActivityIndicatorColour:colour];
+}
+
+-(void)setActivityIndicatorColour:(UIColor *)colour
+{
+    if (colour)
+    {
+        [self.activityindicator setColor:colour];
+    }
+}
 #pragma mark - Show Hide Methods
 
 +(void)showActivityInView:(UIView *)view withText:(NSString *)string
