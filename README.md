@@ -17,3 +17,5 @@ If multiple Activity views are to be displayed simultaneously create any number 
 ### Style Methods
 - (void)setBackgroundColour:(UIColor *)colour; //Sets Background Colour of ActivityView
 - (void)setFont:(UIFont *)font; //Sets Font for text in ActivityView
+- (void)setTextColour:(UIColor *)fontColour //Sets text colour;
+- (void)setActivityIndicatorColour:(UIColor *)colour; //Sets colour of Activity Indicator, the animated cogwheel

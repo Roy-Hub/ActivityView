@@ -17,11 +17,15 @@ const CGFloat margin = 10.0;
 }
 @property (strong, nonatomic) UIActivityIndicatorView *activityindicator;
 @property (strong, nonatomic) UILabel *mesglabel;
+
+@property (strong, nonatomic) UIColor *borderColour;
+@property (nonatomic) CGFloat borderWidth;
+@property (nonatomic) CGFloat cornerRadius;
+
 @property (readonly) BOOL isActivityViewVisible;
 @end
 
 @implementation ActivityView
-
 -(instancetype)init
 {
     self = [super init];
@@ -38,11 +42,10 @@ const CGFloat margin = 10.0;
     [self setBackgroundColor:[UIColor colorWithWhite:0.5 alpha:0.5]];
     [self setConstraints];
     
-    
-    [ActivityView setBorderForView:self
-                   withBorderWidth:1.0
-                       BorderColor:[UIColor blackColor]
-                      cornerRadius:5.0];
+    _borderColour = [UIColor blackColor];
+    _borderWidth  = 1.0;
+    _cornerRadius = 5.0;
+
     return self;
 }
 
@@ -82,7 +85,7 @@ const CGFloat margin = 10.0;
                                                    attribute:NSLayoutAttributeWidth
                                                    relatedBy:NSLayoutRelationEqual
                                                       toItem:nil
-                                                   attribute:nil
+                                                   attribute:NSLayoutAttributeWidth
                                                   multiplier:1.0
                                                     constant:0];
     
@@ -90,7 +93,7 @@ const CGFloat margin = 10.0;
                                                    attribute:NSLayoutAttributeHeight
                                                    relatedBy:NSLayoutRelationEqual
                                                       toItem:nil
-                                                   attribute:nil
+                                                   attribute:NSLayoutAttributeHeight
                                                   multiplier:1.0
                                                     constant:0];
     
@@ -149,6 +152,15 @@ const CGFloat margin = 10.0;
     [widthConstraint setConstant:size.width + 2.0 * margin];
     [heightConstraint setConstant:70.0];
 }
+
+-(void)updateBordersAndColours
+{
+    [ActivityView setBorderForView:self
+                   withBorderWidth:self.borderWidth
+                       BorderColor:self.borderColour
+                      cornerRadius:self.cornerRadius];
+}
+
 +(void)setBorderForView:(UIView *)view
         withBorderWidth:(CGFloat)borderWidth
             BorderColor:(UIColor *)borderColor
@@ -157,24 +169,6 @@ const CGFloat margin = 10.0;
     [[view layer] setBorderWidth:borderWidth];
     [[view layer] setBorderColor:borderColor.CGColor];
     [[view layer] setCornerRadius:radius];
-}
-
-+(CGRect)activityFrameForFrame:(CGRect)vidFrame
-{
-    return [[ActivityView sharedView]activityFrameForFrame:vidFrame];
-}
-
--(CGRect)activityFrameForFrame:(CGRect)vidFrame
-{
-    CGSize size = [[self mesglabel]sizeThatFits:vidFrame.size];
-    size.width = (size.width + 20 < vidFrame.size.width)?size.width:(vidFrame.size.width - 26);
-    CGSize activitySize = CGSizeMake(size.width + 20, 70);
-    CGPoint center = CGPointMake(CGRectGetMidX(vidFrame), CGRectGetMidY(vidFrame));
-    CGPoint activityOrigin = CGPointMake(center.x - activitySize.width/2.0, center.y - activitySize.height/2.0);
-    CGRect activityFrame;
-    activityFrame.origin = activityOrigin;
-    activityFrame.size   = activitySize;
-    return activityFrame;
 }
 
 + (ActivityView*)sharedView
@@ -203,6 +197,45 @@ const CGFloat margin = 10.0;
     }
 }
 
++(void)setTextColour:(UIColor *)fontColour
+{
+    [[ActivityView sharedView]setTextColour:fontColour];
+}
+
+-(void)setTextColour:(UIColor *)fontColour
+{
+    if(fontColour)
+    {
+        [[self mesglabel]setTextColor:fontColour];
+    }
+}
+
++(void)setActivityIndicatorColour:(UIColor *)colour
+{
+    [[ActivityView sharedView]setActivityIndicatorColour:colour];
+}
+
+-(void)setActivityIndicatorColour:(UIColor *)colour
+{
+    if (colour)
+    {
+        [self.activityindicator setColor:colour];
+    }
+}
+
++(void)setBorderColour:(UIColor *)borderColour
+{
+    [[ActivityView sharedView]setBorderColour:borderColour];
+}
+
+-(void)setBorderColour:(UIColor *)borderColour
+{
+    if(borderColour)
+    {
+        _borderColour =  borderColour;
+        [self updateBordersAndColours];
+    }
+}
 
 #pragma mark - Show Hide Methods
 
@@ -218,6 +251,8 @@ const CGFloat margin = 10.0;
     [self showInView:view];
     [self adjustWidthAndHeight];
     [self setConstraintsInSuperView:view];
+    
+    [self updateBordersAndColours];
     
     _isActivityViewVisible = YES;
     [self layoutIfNeeded];
