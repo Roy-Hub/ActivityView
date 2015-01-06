@@ -24,6 +24,14 @@
     // Dispose of any resources that can be recreated.
 }
 
+-(UIColor *)colourWithRed:(CGFloat)red green:(CGFloat)green blue:(CGFloat)blue alpha:(CGFloat)alpha
+{
+    CGFloat base = 255.0;
+    return [UIColor colorWithRed:red/base
+                           green:green/base
+                            blue:blue/base
+                           alpha:alpha];
+}
 
 - (IBAction)showActivityToggled:(UISwitch *)sender
 {
@@ -35,10 +43,12 @@
          *  ActivityView *activity = [[ActivityView alloc]init];
          *  [activity showActivityInView:self.insideView withText:@""];
          */
-        [ActivityView setBackgroundColour:[UIColor colorWithRed:(255.0/255.0) green:(170.0/256.0) blue:(135.0/256.0) alpha:0.9]];
-        [ActivityView setTextColour:[UIColor colorWithRed:(0.0/255.0) green:(105.0/256.0) blue:(215.0/256.0) alpha:1.0]];
-        [ActivityView setActivityIndicatorColour:[UIColor colorWithRed:(175.0/255.0) green:(0.0/256.0) blue:(155.0/256.0) alpha:1.0]];
-
+        [ActivityView setBackgroundColour:[self colourWithRed:255 green:170 blue:135 alpha:0.9]];
+        [ActivityView setTextColour:[self colourWithRed:0 green:105 blue:215 alpha:1.0]];
+        [ActivityView setActivityIndicatorColour:[self colourWithRed:175 green:0 blue:155 alpha:1.0]];
+        
+        [ActivityView setBorderColour:[self colourWithRed:255 green:255 blue:155 alpha:1.0]];
+        
         [ActivityView showActivityInView:self.insideView withText:@"Activity View inside View"];
     }
     else

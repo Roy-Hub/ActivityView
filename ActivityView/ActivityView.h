@@ -27,6 +27,9 @@
 +(void)setActivityIndicatorColour:(UIColor *)colour;
 -(void)setActivityIndicatorColour:(UIColor *)colour;
 
++(void)setBorderColour:(UIColor *)borderColour;
+-(void)setBorderColour:(UIColor *)borderColour;
+
 +(BOOL)isVisible;
 -(BOOL)isVisible;
 

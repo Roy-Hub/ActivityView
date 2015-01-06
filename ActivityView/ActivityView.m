@@ -17,11 +17,15 @@ const CGFloat margin = 10.0;
 }
 @property (strong, nonatomic) UIActivityIndicatorView *activityindicator;
 @property (strong, nonatomic) UILabel *mesglabel;
+
+@property (strong, nonatomic) UIColor *borderColour;
+@property (nonatomic) CGFloat borderWidth;
+@property (nonatomic) CGFloat cornerRadius;
+
 @property (readonly) BOOL isActivityViewVisible;
 @end
 
 @implementation ActivityView
-
 -(instancetype)init
 {
     self = [super init];
@@ -38,11 +42,10 @@ const CGFloat margin = 10.0;
     [self setBackgroundColor:[UIColor colorWithWhite:0.5 alpha:0.5]];
     [self setConstraints];
     
-    
-    [ActivityView setBorderForView:self
-                   withBorderWidth:1.0
-                       BorderColor:[UIColor blackColor]
-                      cornerRadius:5.0];
+    _borderColour = [UIColor blackColor];
+    _borderWidth  = 1.0;
+    _cornerRadius = 5.0;
+
     return self;
 }
 
@@ -150,6 +153,14 @@ const CGFloat margin = 10.0;
     [heightConstraint setConstant:70.0];
 }
 
+-(void)updateBordersAndColours
+{
+    [ActivityView setBorderForView:self
+                   withBorderWidth:self.borderWidth
+                       BorderColor:self.borderColour
+                      cornerRadius:self.cornerRadius];
+}
+
 +(void)setBorderForView:(UIView *)view
         withBorderWidth:(CGFloat)borderWidth
             BorderColor:(UIColor *)borderColor
@@ -211,6 +222,21 @@ const CGFloat margin = 10.0;
         [self.activityindicator setColor:colour];
     }
 }
+
++(void)setBorderColour:(UIColor *)borderColour
+{
+    [[ActivityView sharedView]setBorderColour:borderColour];
+}
+
+-(void)setBorderColour:(UIColor *)borderColour
+{
+    if(borderColour)
+    {
+        _borderColour =  borderColour;
+        [self updateBordersAndColours];
+    }
+}
+
 #pragma mark - Show Hide Methods
 
 +(void)showActivityInView:(UIView *)view withText:(NSString *)string
@@ -225,6 +251,8 @@ const CGFloat margin = 10.0;
     [self showInView:view];
     [self adjustWidthAndHeight];
     [self setConstraintsInSuperView:view];
+    
+    [self updateBordersAndColours];
     
     _isActivityViewVisible = YES;
     [self layoutIfNeeded];
